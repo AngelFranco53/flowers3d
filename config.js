@@ -49,8 +49,7 @@ const CONFIG = {
   senderName:    'Con todo mi cariño ♡',
   letterTitle:   'Un pequeño jardín para ti...',
   letterContent: `Cada flor que ves aquí fue plantada con un pedacito de mi corazón.
-Espero que cada vez que las mires, recuerdes lo mucho que te quiero
-y lo especial que eres para mí.
+Hice esta pequeña página porque hay personas que inspiran cosas bonitas sin darse cuenta. A veces una flor no alcanza para explicar lo que uno siente al ver sonreír a alguien, así que quise crear un pequeño espacio donde esa sensación pudiera quedarse un poco más de tiempo. No es algo grande, pero está hecho con dedicación, porque hay presencias que merecen detalles que nazcan desde lo más sincero.
 
 Gracias por existir y por ser parte de mi vida.
 Eres mi flor favorita de todo el jardín. 🌸`,
