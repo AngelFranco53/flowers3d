@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- El título se inyecta desde config.js vía JS -->
+  <title>Jardín 3D</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    Three.js desde CDN.
+    Versión r128 es estable y no requiere módulos ES.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- ── Loader ──────────────────────────────────────────────────────────── -->
+  <div id="loader">
+    <div class="loader-petal">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <p class="loader-text">Plantando flores…</p>
+  </div>
+
+  <!-- ── Título ───────────────────────────────────────────────────────────── -->
+  <h1 id="page-title"></h1>
+
+  <!-- ── Canvas 3D ────────────────────────────────────────────────────────── -->
+  <div id="canvas-container"></div>
+
+  <!-- ── Hint ─────────────────────────────────────────────────────────────── -->
+  <p id="orbit-hint">La cámara orbita sola · Espera la sorpresa ✉</p>
+
+  <!-- ── Botón carta ──────────────────────────────────────────────────────── -->
+  <button id="letter-btn"></button>
+
+  <!-- ── Modal / Carta ────────────────────────────────────────────────────── -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="card-title">
+    <div id="letter-card">
+
+      <button id="close-btn" aria-label="Cerrar carta">&#10005;</button>
+
+      <p class="card-flowers">🌸 🌺 🌼</p>
+
+      <p id="card-recipient"></p>
+      <h2 id="card-title"></h2>
+      <hr class="card-divider" />
+      <p id="card-body"></p>
+      <p id="card-sender"></p>
+
+    </div>
+  </div>
+
+  <!-- ── Configuración (variables de entorno) ─────────────────────────────── -->
+  <script src="config.js"></script>
+
+  <!-- ── Inyección dinámica desde CONFIG ──────────────────────────────────── -->
+  <script>
+    // Aplicar valores de CONFIG al HTML antes de cargar la escena
+    document.title                              = CONFIG.pageTitle;
+    document.getElementById('page-title').textContent    = CONFIG.pageTitle;
+    document.getElementById('letter-btn').textContent    = CONFIG.buttonText;
+    document.getElementById('card-recipient').textContent = CONFIG.recipientName;
+    document.getElementById('card-title').textContent    = CONFIG.letterTitle;
+    document.getElementById('card-body').textContent     = CONFIG.letterContent;
+    document.getElementById('card-sender').textContent   = CONFIG.senderName;
+
+    // Aplicar color de fondo del body desde config (para coherencia antes de que Three cargue)
+    document.body.style.background = CONFIG.backgroundColor;
+  </script>
+
+  <!-- ── Escena 3D ─────────────────────────────────────────────────────────── -->
+  <script src="app.js"></script>
+
+</body>
+</html>
